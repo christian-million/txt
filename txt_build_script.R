@@ -28,3 +28,6 @@ devtools::use_data()
 
 # Where you are ready to install your package, use the following function
 devtools::install()
+
+# Create git file and create first commit
+usethis::use_git()
