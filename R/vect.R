@@ -18,3 +18,11 @@ vect_bottom <- function(vect, pos){
   return(bottom)
 
 }
+
+#'
+#'@export
+vect_print <- function(vect){
+
+  cat(vect, sep = "\n")
+
+}
