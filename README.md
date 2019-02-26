@@ -40,5 +40,13 @@ To-Do
 -   \[ \] Error / Exception Handling
 -   \[ \] Document all functions
 -   \[ \] Provide useful examples
--   \[ \] Create toy vector that capture lots of cases
+-   \[ \] Create toy vector (sample\_script) that captures lots of cases
 -   \[ \] Restructure the functions to accept multiple positions. (e.g., `txt_insert("a", letters, pos = c(2, 3, 4))`)
+-   \[ \] Why are functions like `txt::txt_append()` better than `base::append()`? Standard syntax?
+-   \[ \] Identify how to easily incorporate something like `stringr` to accomplish the following:
+
+    -   \[ \] Append to specific vector elements (e.g., `char_append(text = "+", vect, pos)`)
+
+    -   \[ \] When using `find_text()`, remove all spaces in text and vect to disregard formatting
+
+-   \[ \] Identify useful way to add indents to specific element to make formatting pretty. `styler`?
