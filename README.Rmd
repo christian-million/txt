@@ -26,33 +26,44 @@ remotes::install_github("christian-million/txt")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example:
 
 ```{r example}
-# library(txt)
+library(txt)
 
-## Find the first empty line after the "#### Load Necessary Packages" comment in my script.
+# Print script to console
+vect_print(sample_script) # sample_script vector included in txt package
 
-# my_script <- readLines("path/to/my_script.R")
-# find_first_after("", my_script, "#### Load Necessary Packages")
+# Remove space between package section and first package
+new_script <- txt_remove(sample_script, find_first_after("", sample_script, "#### Attach Necessary Packages"))
 
-## Add "library(dplyr)" before the first empty line after the "#### Load Necessary Packages" comment in my script.
-# my_new_script <- txt_insert(text = "library(dplyr)", vect = my_script, pos = (find_first_after("", my_script, "#### Load Necessary Packages") - 1))
+# Add ggplot2 to package section
+new_script <- txt_insert("library(ggplot2)", new_script, find_nth_before("", new_script, 2, "#### Data Load") - 1)
 
-## Write over previous script
-# write_utf8("path/to/my_script.R", my_new_script)
+# Write script to working directory
+write_utf8("new_script.R", new_script)
+
+# Forgot to add something to end
+write_utf8("new_script.R", c("","#### End Script"), TRUE)
 
 ```
 
 ## To-Do
 
 - [X] Create README
+
 - [ ] Error / Exception Handling
+
 - [ ] Document all functions
+
 - [ ] Provide useful examples
+
 - [ ] Create toy vector (sample_script) that captures lots of cases
+
 - [ ] Restructure the functions to accept multiple positions. (e.g., `txt_insert("a", letters, pos = c(2, 3, 4))`)
+
 - [ ] Why are functions like `txt::txt_append()` better than `base::append()`? Standard syntax?
+
 - [ ] Identify how to easily incorporate something like `stringr` to accomplish the following:
 
     - [ ] Append to specific vector elements (e.g., `char_append(text = "+", vect, pos)`)

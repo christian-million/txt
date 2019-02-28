@@ -34,7 +34,7 @@ txt_replace <- function(x, vect, pos){
 
 #'
 #'@export
-txt_append <- function(x, vect, add_break = TRUE){
+txt_append <- function(x, vect, add_break = FALSE){
 
   if(add_break == TRUE) x <- c("", x)
 
